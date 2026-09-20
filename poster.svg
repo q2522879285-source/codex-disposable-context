@@ -1,48 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08111f"/><stop offset="0.55" stop-color="#101b32"/><stop offset="1" stop-color="#152947"/></linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#57e6c5"/><stop offset="1" stop-color="#4ca7ff"/></linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity="0.28"/></filter>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f3eb"/><stop offset="1" stop-color="#e9e3d8"/></linearGradient>
+    <linearGradient id="coral" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff755b"/><stop offset="1" stop-color="#dc3f4d"/></linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#182c52"/><stop offset="1" stop-color="#0c1934"/></linearGradient>
+    <filter id="paperShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#14213d" flood-opacity=".18"/></filter>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#182c52" stroke-opacity=".07" stroke-width="1"/></pattern>
     <style>
-      .sans { font-family: "Microsoft YaHei","Noto Sans CJK SC","Segoe UI",sans-serif; }
-      .title { fill:#f5fbff; font-weight:700; }
-      .muted { fill:#a8bdd2; }
-      .accent { fill:#57e6c5; }
-      .card { fill:#152640; stroke:#2a4669; stroke-width:2; }
-      .small { font-size:24px; }
-      .body { font-size:30px; }
-      .label { font-size:22px; letter-spacing:3px; }
+      .sans { font-family: "Microsoft YaHei", "Noto Sans CJK SC", "Segoe UI", sans-serif; }
+      .mono { font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace; }
+      .ink { fill:#17233d; } .navy { fill:#f7f3eb; } .muted { fill:#687185; } .coral { fill:#e44c4c; }
+      .label { font-size:22px; letter-spacing:4px; font-weight:700; }
     </style>
   </defs>
-  <rect width="1080" height="1920" fill="url(#bg)"/>
-  <circle cx="930" cy="90" r="190" fill="#57e6c5" opacity=".08"/>
-  <circle cx="130" cy="1780" r="240" fill="#4ca7ff" opacity=".08"/>
+  <rect width="1080" height="1920" fill="url(#paper)"/><rect x="0" y="0" width="1080" height="640" fill="url(#grid)"/>
+  <path d="M0 1160H1080" stroke="#17233d" stroke-opacity=".12" stroke-width="2"/><circle cx="985" cy="145" r="155" fill="#e44c4c" opacity=".10"/><circle cx="95" cy="1720" r="220" fill="#2b80c9" opacity=".08"/>
   <g class="sans">
-    <text x="80" y="105" class="accent label">EVENT → CONTEXT → NEXT</text>
-    <text x="80" y="215" class="title" font-size="72">事件完成，旧上下文自动退场</text>
-    <text x="80" y="275" class="muted" font-size="34">次抛上下文替换：下一步只接收刚刚完成所必需的内容</text>
-    <rect x="80" y="340" width="920" height="570" rx="34" fill="#0d192c" stroke="#28496c" stroke-width="2" filter="url(#shadow)"/>
-    <text x="125" y="405" class="accent label">CORE LOOP / 三步闭环</text>
-    <circle cx="180" cy="515" r="56" fill="url(#accent)"/><text x="180" y="529" text-anchor="middle" fill="#07131f" font-size="36" font-weight="700">01</text>
-    <text x="275" y="505" class="title" font-size="42">监听完成</text><text x="275" y="550" class="muted body">捕获事件完成信号，锁定本次事件的输出边界。</text>
-    <path d="M180 580 L180 650" stroke="#57e6c5" stroke-width="6"/><path d="M166 640 L180 660 L194 640" fill="none" stroke="#57e6c5" stroke-width="6"/>
-    <circle cx="180" cy="735" r="56" fill="url(#accent)"/><text x="180" y="749" text-anchor="middle" fill="#07131f" font-size="36" font-weight="700">02</text>
-    <text x="275" y="725" class="title" font-size="42">次抛替换</text><text x="275" y="770" class="muted body">只保留结果、约束与追踪 ID；旧上下文退出生命周期。</text>
-    <path d="M180 800 L180 870" stroke="#57e6c5" stroke-width="6"/><path d="M166 860 L180 880 L194 860" fill="none" stroke="#57e6c5" stroke-width="6"/>
-    <circle cx="180" cy="945" r="56" fill="url(#accent)"/><text x="180" y="959" text-anchor="middle" fill="#07131f" font-size="36" font-weight="700">03</text>
-    <text x="275" y="935" class="title" font-size="42">新上下文接管</text><text x="275" y="980" class="muted body">自动加载最小 handoff，继续执行，无需手动拼接。</text>
-    <text x="80" y="1085" class="accent label">COMPONENTS / 组件分工</text>
-    <g filter="url(#shadow)"><rect x="80" y="1120" width="440" height="150" rx="24" class="card"/><rect x="560" y="1120" width="440" height="150" rx="24" class="card"/><rect x="80" y="1295" width="440" height="150" rx="24" class="card"/><rect x="560" y="1295" width="440" height="150" rx="24" class="card"/></g>
-    <text x="120" y="1175" class="title" font-size="31">Event Detector</text><text x="120" y="1222" class="muted small">检测 done / success / timeout</text>
-    <text x="600" y="1175" class="title" font-size="31">Context Manager</text><text x="600" y="1222" class="muted small">管理上下文作用域与生命周期</text>
-    <text x="120" y="1350" class="title" font-size="31">Handoff Builder</text><text x="120" y="1397" class="muted small">提炼 result / constraints / trace_id</text>
-    <text x="600" y="1350" class="title" font-size="31">Next Executor</text><text x="600" y="1397" class="muted small">注入新上下文并启动下一步</text>
-    <text x="80" y="1515" class="muted" font-size="27">事件负责“何时切换”，上下文层负责“切什么”，执行器负责“接着做什么”。</text>
-    <text x="80" y="1605" class="accent label">GOOD FIT / 适用场景</text>
-    <g><rect x="80" y="1640" width="410" height="64" rx="32" fill="#1b3b55"/><rect x="510" y="1640" width="490" height="64" rx="32" fill="#1b3b55"/><rect x="80" y="1720" width="410" height="64" rx="32" fill="#1b3b55"/><rect x="510" y="1720" width="490" height="64" rx="32" fill="#1b3b55"/>
-      <text x="285" y="1682" text-anchor="middle" fill="#d8f7ff" font-size="25">多阶段 Agent 工作流</text><text x="755" y="1682" text-anchor="middle" fill="#d8f7ff" font-size="25">CI/CD 阶段串联</text><text x="285" y="1762" text-anchor="middle" fill="#d8f7ff" font-size="25">ETL / 数据管道</text><text x="755" y="1762" text-anchor="middle" fill="#d8f7ff" font-size="25">浏览器自动化与编排</text>
-    </g>
-    <rect x="80" y="1825" width="920" height="42" rx="21" fill="url(#accent)"/><text x="540" y="1854" text-anchor="middle" fill="#07131f" font-size="27" font-weight="700">把一次性上下文，交给下一次事件。</text>
-    <text x="540" y="1904" text-anchor="middle" class="muted" font-size="20">github.com/q2522879285-source/codex-disposable-context</text>
+    <text x="72" y="94" class="ink label">CODEX / DISPOSABLE CONTEXT</text><text x="1008" y="94" text-anchor="end" class="muted mono" font-size="20">ISSUE 01 · 2026</text>
+    <text x="72" y="226" class="ink" font-size="118" font-weight="800">事件完成，</text><text x="72" y="352" class="ink" font-size="118" font-weight="800">旧上下文退场</text>
+    <rect x="72" y="402" width="480" height="48" rx="24" fill="url(#coral)"/><text x="96" y="436" fill="#fffaf3" font-size="28" font-weight="700">不是等满了才抛，而是做完就换。</text><text x="1008" y="436" text-anchor="end" class="muted" font-size="24">阶段性次抛 / event-driven rotation</text>
+
+    <!-- One page leaves while the next page takes over. -->
+    <g filter="url(#paperShadow)"><rect x="72" y="535" width="360" height="465" rx="22" fill="url(#blue)"/><rect x="648" y="505" width="360" height="495" rx="22" fill="#fffdf8" stroke="#17233d" stroke-width="3"/></g>
+    <text x="112" y="595" fill="#ff806c" class="mono" font-size="20" letter-spacing="3">OLD CONTEXT</text><text x="112" y="654" class="navy" font-size="46" font-weight="800">这一页，完成。</text><path d="M112 706H390" stroke="#f7f3eb" stroke-opacity=".25" stroke-width="2"/>
+    <text x="112" y="766" fill="#aab6c8" class="mono" font-size="22">result      ✓ ready</text><text x="112" y="820" fill="#aab6c8" class="mono" font-size="22">constraints ✓ kept</text><text x="112" y="874" fill="#aab6c8" class="mono" font-size="22">trace_id    #7F2A</text><text x="112" y="940" fill="#ff806c" font-size="24" font-weight="700">EVENT_CLOSED</text>
+    <text x="688" y="567" class="coral mono" font-size="20" letter-spacing="3">NEXT EVENT</text><text x="688" y="638" class="ink" font-size="48" font-weight="800">只带必要的。</text><path d="M688 680H970" stroke="#17233d" stroke-opacity=".18" stroke-width="2"/>
+    <circle cx="706" cy="735" r="8" fill="#e44c4c"/><text x="730" y="744" class="ink mono" font-size="23">handoff.json</text><circle cx="706" cy="795" r="8" fill="#e44c4c"/><text x="730" y="804" class="ink mono" font-size="23">constraints</text><circle cx="706" cy="855" r="8" fill="#e44c4c"/><text x="730" y="864" class="ink mono" font-size="23">trace_id</text>
+    <text x="688" y="938" class="muted" font-size="23">下一步从干净的边界继续，</text><text x="688" y="970" class="muted" font-size="23">不再背着上一页赶路。</text>
+    <path d="M423 780H663" stroke="#e44c4c" stroke-width="12" stroke-linecap="round"/><path d="M640 750L678 780L640 810" fill="none" stroke="#e44c4c" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="rotate(-7 540 700)"><rect x="442" y="650" width="190" height="54" rx="7" fill="#f6c84c"/><text x="537" y="686" text-anchor="middle" class="ink mono" font-size="23" font-weight="700">HANDOFF</text></g><text x="540" y="855" text-anchor="middle" class="muted mono" font-size="18" letter-spacing="2">ONE EVENT / ONE PAGE</text>
+
+    <text x="72" y="1088" class="ink label">THE LOOP / 三步闭环</text><path d="M72 1120H1008" stroke="#17233d" stroke-width="3"/>
+    <text x="72" y="1195" class="coral mono" font-size="56" font-weight="700">01</text><text x="72" y="1248" class="ink" font-size="34" font-weight="800">监听完成</text><text x="72" y="1288" class="muted" font-size="20">捕获 done / success / timeout</text>
+    <path d="M352 1170V1305" stroke="#17233d" stroke-opacity=".18" stroke-width="2"/><text x="402" y="1195" class="coral mono" font-size="56" font-weight="700">02</text><text x="402" y="1248" class="ink" font-size="34" font-weight="800">次抛替换</text><text x="402" y="1288" class="muted" font-size="20">只留结果、约束、trace_id</text>
+    <path d="M682 1170V1305" stroke="#17233d" stroke-opacity=".18" stroke-width="2"/><text x="732" y="1195" class="coral mono" font-size="56" font-weight="700">03</text><text x="732" y="1248" class="ink" font-size="34" font-weight="800">新页接管</text><text x="732" y="1288" class="muted" font-size="20">注入 handoff，继续执行</text>
+
+    <text x="72" y="1400" class="ink label">WHO DOES WHAT / 组件分工</text>
+    <rect x="72" y="1436" width="292" height="132" rx="18" fill="#17233d"/><rect x="394" y="1436" width="292" height="132" rx="18" fill="#e44c4c"/><rect x="716" y="1436" width="292" height="132" rx="18" fill="#2b80c9"/>
+    <text x="100" y="1484" class="navy mono" font-size="21" letter-spacing="2">HOOK</text><text x="100" y="1530" class="navy" font-size="30" font-weight="800">负责触发</text><text x="422" y="1484" fill="#fffaf3" class="mono" font-size="21" letter-spacing="2">ORCHESTRATOR</text><text x="422" y="1530" fill="#fffaf3" font-size="30" font-weight="800">负责换页</text><text x="744" y="1484" fill="#fffaf3" class="mono" font-size="21" letter-spacing="2">STATE_V1</text><text x="744" y="1530" fill="#fffaf3" font-size="30" font-weight="800">负责交接</text>
+    <text x="72" y="1638" class="muted" font-size="24">事件决定“何时换”，状态决定“带什么”，新任务负责“接着做什么”。</text>
+    <rect x="72" y="1710" width="936" height="94" rx="47" fill="#17233d"/><text x="540" y="1770" text-anchor="middle" fill="#fffaf3" font-size="34" font-weight="800">把一次性上下文，交给下一次事件。</text>
+    <text x="72" y="1852" class="coral mono" font-size="19" letter-spacing="1">OPEN SOURCE / MIT LICENSE</text><text x="1008" y="1852" text-anchor="end" class="muted mono" font-size="19">github.com/q2522879285-source/codex-disposable-context</text>
   </g>
 </svg>
+
+
