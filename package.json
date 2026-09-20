@@ -1,0 +1,12 @@
+{
+  "name": "disposable-context",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Rotate completed Codex work into a fresh task using an explicit EVENT_CLOSED handoff.",
+  "license": "MIT",
+  "repository": "https://github.com/q2522879285-source/codex-disposable-context",
+  "type": "module",
+  "scripts": {
+    "self-test": "node orchestrator.mjs --self-test"
+  }
+}

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08111f"/><stop offset="0.55" stop-color="#101b32"/><stop offset="1" stop-color="#152947"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#57e6c5"/><stop offset="1" stop-color="#4ca7ff"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity="0.28"/></filter>
+    <style>
+      .sans { font-family: "Microsoft YaHei","Noto Sans CJK SC","Segoe UI",sans-serif; }
+      .title { fill:#f5fbff; font-weight:700; }
+      .muted { fill:#a8bdd2; }
+      .accent { fill:#57e6c5; }
+      .card { fill:#152640; stroke:#2a4669; stroke-width:2; }
+      .small { font-size:24px; }
+      .body { font-size:30px; }
+      .label { font-size:22px; letter-spacing:3px; }
+    </style>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+  <circle cx="930" cy="90" r="190" fill="#57e6c5" opacity=".08"/>
+  <circle cx="130" cy="1780" r="240" fill="#4ca7ff" opacity=".08"/>
+  <g class="sans">
+    <text x="80" y="105" class="accent label">EVENT → CONTEXT → NEXT</text>
+    <text x="80" y="215" class="title" font-size="72">事件完成，旧上下文自动退场</text>
+    <text x="80" y="275" class="muted" font-size="34">次抛上下文替换：下一步只接收刚刚完成所必需的内容</text>
+    <rect x="80" y="340" width="920" height="570" rx="34" fill="#0d192c" stroke="#28496c" stroke-width="2" filter="url(#shadow)"/>
+    <text x="125" y="405" class="accent label">CORE LOOP / 三步闭环</text>
+    <circle cx="180" cy="515" r="56" fill="url(#accent)"/><text x="180" y="529" text-anchor="middle" fill="#07131f" font-size="36" font-weight="700">01</text>
+    <text x="275" y="505" class="title" font-size="42">监听完成</text><text x="275" y="550" class="muted body">捕获事件完成信号，锁定本次事件的输出边界。</text>
+    <path d="M180 580 L180 650" stroke="#57e6c5" stroke-width="6"/><path d="M166 640 L180 660 L194 640" fill="none" stroke="#57e6c5" stroke-width="6"/>
+    <circle cx="180" cy="735" r="56" fill="url(#accent)"/><text x="180" y="749" text-anchor="middle" fill="#07131f" font-size="36" font-weight="700">02</text>
+    <text x="275" y="725" class="title" font-size="42">次抛替换</text><text x="275" y="770" class="muted body">只保留结果、约束与追踪 ID；旧上下文退出生命周期。</text>
+    <path d="M180 800 L180 870" stroke="#57e6c5" stroke-width="6"/><path d="M166 860 L180 880 L194 860" fill="none" stroke="#57e6c5" stroke-width="6"/>
+    <circle cx="180" cy="945" r="56" fill="url(#accent)"/><text x="180" y="959" text-anchor="middle" fill="#07131f" font-size="36" font-weight="700">03</text>
+    <text x="275" y="935" class="title" font-size="42">新上下文接管</text><text x="275" y="980" class="muted body">自动加载最小 handoff，继续执行，无需手动拼接。</text>
+    <text x="80" y="1085" class="accent label">COMPONENTS / 组件分工</text>
+    <g filter="url(#shadow)"><rect x="80" y="1120" width="440" height="150" rx="24" class="card"/><rect x="560" y="1120" width="440" height="150" rx="24" class="card"/><rect x="80" y="1295" width="440" height="150" rx="24" class="card"/><rect x="560" y="1295" width="440" height="150" rx="24" class="card"/></g>
+    <text x="120" y="1175" class="title" font-size="31">Event Detector</text><text x="120" y="1222" class="muted small">检测 done / success / timeout</text>
+    <text x="600" y="1175" class="title" font-size="31">Context Manager</text><text x="600" y="1222" class="muted small">管理上下文作用域与生命周期</text>
+    <text x="120" y="1350" class="title" font-size="31">Handoff Builder</text><text x="120" y="1397" class="muted small">提炼 result / constraints / trace_id</text>
+    <text x="600" y="1350" class="title" font-size="31">Next Executor</text><text x="600" y="1397" class="muted small">注入新上下文并启动下一步</text>
+    <text x="80" y="1515" class="muted" font-size="27">事件负责“何时切换”，上下文层负责“切什么”，执行器负责“接着做什么”。</text>
+    <text x="80" y="1605" class="accent label">GOOD FIT / 适用场景</text>
+    <g><rect x="80" y="1640" width="410" height="64" rx="32" fill="#1b3b55"/><rect x="510" y="1640" width="490" height="64" rx="32" fill="#1b3b55"/><rect x="80" y="1720" width="410" height="64" rx="32" fill="#1b3b55"/><rect x="510" y="1720" width="490" height="64" rx="32" fill="#1b3b55"/>
+      <text x="285" y="1682" text-anchor="middle" fill="#d8f7ff" font-size="25">多阶段 Agent 工作流</text><text x="755" y="1682" text-anchor="middle" fill="#d8f7ff" font-size="25">CI/CD 阶段串联</text><text x="285" y="1762" text-anchor="middle" fill="#d8f7ff" font-size="25">ETL / 数据管道</text><text x="755" y="1762" text-anchor="middle" fill="#d8f7ff" font-size="25">浏览器自动化与编排</text>
+    </g>
+    <rect x="80" y="1825" width="920" height="42" rx="21" fill="url(#accent)"/><text x="540" y="1854" text-anchor="middle" fill="#07131f" font-size="27" font-weight="700">把一次性上下文，交给下一次事件。</text>
+  </g>
+</svg>
