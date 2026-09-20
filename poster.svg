@@ -43,5 +43,6 @@
       <text x="285" y="1682" text-anchor="middle" fill="#d8f7ff" font-size="25">多阶段 Agent 工作流</text><text x="755" y="1682" text-anchor="middle" fill="#d8f7ff" font-size="25">CI/CD 阶段串联</text><text x="285" y="1762" text-anchor="middle" fill="#d8f7ff" font-size="25">ETL / 数据管道</text><text x="755" y="1762" text-anchor="middle" fill="#d8f7ff" font-size="25">浏览器自动化与编排</text>
     </g>
     <rect x="80" y="1825" width="920" height="42" rx="21" fill="url(#accent)"/><text x="540" y="1854" text-anchor="middle" fill="#07131f" font-size="27" font-weight="700">把一次性上下文，交给下一次事件。</text>
+    <text x="540" y="1904" text-anchor="middle" class="muted" font-size="20">github.com/q2522879285-source/codex-disposable-context</text>
   </g>
 </svg>
